@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nvidia ecommerce</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    {{>header}}
+    {{!-- <div class="carousel">
+        promotion
+    </div> --}}
+    <div class="products">
+        <div class="productsWrapper">
+                {{#each products}}
+                    <div class="item">
+                        <a href="">
+                            <img src="/images/{{this.image}}">
+                        </a>
+                        <a class="productName">
+                            {{this.name}}
+                        </a>
+                        <P>{{this.price}}</P>
+                        <button>add to cart</button>
+                    </div>
+                {{/each}}
+        </div>
+    </div>
+    <script src="/js/app.js"></script>
+</body>
+</html>

@@ -57,3 +57,41 @@ button{
     color: white;
     font-weight: 700;
 }
+
+
+
+/*bag code begins here*/
+
+.bagHeading{
+    text-align: center;
+    font-weight: 700;
+}
+
+.bagWrapper{
+    padding: 0 25%;
+    font-size: 20px;
+}
+
+.bagItem, .bagHeader{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.bagItem{
+    margin-top: 50px;
+}
+.bagImage img{
+    height: 70px;
+    width: 100%;
+    object-fit: contain;
+}
+
+.checkout {
+    text-align: center;
+    color: red;
+    padding: 20px;
+}
+
+.checkout a{
+    padding-top: 10px;
+}

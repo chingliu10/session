@@ -62,18 +62,19 @@ app.get("/", (req, res) => {
 app.get("/bag", (req, res) => {
 
     if(!req.session.cart){
-        res.send("error code 404" )
+        res.redirect("/")
     }else{
-      res.render("bay", {products : req.session.cart})
+      let ct = req.session.cart
+      let ct2 = req.session.cart.products.length
+    
+      res.render("bay", { totalItmes : ct2 , products : ct})
     }
   
 })
 
 
 app.get("/addToCart/:pid", (req, res) => {
-    
-      console.log(req.session.views)
-      console.log(req.sessionID)  
+      
       // console.log(JSON.parse(req.session.cart))
       db.query(`select * from products where name = '${req.params.pid}'`, function(err, results, fields){
           if(err) throw err

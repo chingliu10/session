@@ -8,7 +8,41 @@
 </head>
 <body>
     {{>header}}
-    <h1>welcome to your bag</h1>
-    <h3>Products added</h3>
+    <h1 class="bagHeading">your bag</h1>
+
+    <div class="bag">
+        <div class="bagWrapper">
+                    <div class="bagHeader">
+                        <div class="bagImageName">
+                            product image
+                        </div>
+                         <div class="bagName">
+                            product name
+                        </div>
+                         <div class="bagPrice">
+                            Price
+                        </div>
+                    </div>
+                   {{#each products.products}}
+                        <div class="bagItem">
+                            <div class="bagImage">
+                                <img src="/images/{{this.image}}">
+                            </div>
+                            <div class="bagItemName">
+                                {{this.name}}
+                            </div>
+                            <div class="bagItemPrice">
+                                {{this.price}}
+                            </div>
+                        </div>
+                        
+                    {{/each}}
+                    <div style="margin-top: 50px;text-align: center;">Total price is : {{products.total}}</div>
+                    <div class="checkout">
+                         <a href="/checkout">Proceeed to checkout</a>
+                    </div>
+        </div>
+     
+    </div>
 </body>
 </html>

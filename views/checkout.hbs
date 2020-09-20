@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkout</title>
+    <link rel="stylesheet" href="/css/checkout.css">
+</head>
+<body>
+    <h1>checkout</h1>
+    <div class="checkout">
+        <div class="formCover">
+            <form action="/checkout" method="post">
+                <div class="formGroup">
+                    <label>your name</label>
+                    <input type="text" name="customerName">
+                </div>
+                <div class="formGroup">
+                    <label>your address</label>
+                    <input type="text" name="customerAddress">
+                </div>
+                <div class="formGroup">
+                    <label>your phoneNumber</label>
+                    <input type="text" name="customerPhone">
+                </div>
+                <button>Complete Order</button>
+            </form>
+        </div>
+        <div class="productCover">
+               <div class="products">
+                   {{#each cart.products}}
+                        <div class="item">
+                            <div class="imgage">
+                                <img src="/images/{{this.image}}">
+                            </div>
+                            <div class="price">
+                                <p>{{this.price}}</p>
+                            </div>
+                        </div>
+                   {{/each}}
+               </div>
+               <hr/>
+               <div class="total">
+                   <h3>Total <span style="float: right">{{cart.total}}</span></h3>
+               </div>
+        </div>
+    </div>
+</body>
+</html>

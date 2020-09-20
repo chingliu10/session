@@ -1,0 +1,57 @@
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    text-align: center;
+}
+.checkout{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: 0 20%;
+}
+
+form{
+    padding: 0 20px;
+}
+
+.formGroup{
+    margin: 20px 0;
+}
+
+.formGroup label{
+    display: block;
+}
+
+.formGroup input{
+    display: block;
+    width: 376px;
+    padding: 10px 10px;
+    margin-top: 10px;
+}
+
+button{
+    width: 400px;
+    border: 0 solid;
+    height: 50px;
+    background-color: #007766;
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.item{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.item img{
+    width: 70px;
+    height: 70px;
+}
+
+.price{
+    text-align: right;
+}

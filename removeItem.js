@@ -15,5 +15,5 @@ module.exports = function removeItem(request, response, itemRemoved)   {
     }
     
     request.session.cart.total = request.session.cart.total - price 
-    response.json({ total  : price } )
+    response.json({ total  : price , count : 1} )
 }

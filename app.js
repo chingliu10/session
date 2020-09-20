@@ -38,6 +38,7 @@ app.use(session({
 
 //database connection
 const db = require("./connection")
+const checkout = require("./checkout")
 
 app.get("/", (req, res) => {
       
@@ -94,6 +95,13 @@ app.get("/addToCart/:pid", (req, res) => {
   })
 
 
+  app.get("/checkout", (req, res) => {
+    res.render("checkout", {cart : req.session.cart}
+  })
+
+  app.post("/checkout", () => {
+    checkout();
+  })
 
 app.listen(3000, () => {
   console.log("running from Nvidia servers")

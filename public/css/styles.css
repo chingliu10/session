@@ -74,7 +74,7 @@ button{
 
 .bagItem, .bagHeader{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .bagItem{
@@ -84,6 +84,18 @@ button{
     height: 70px;
     width: 100%;
     object-fit: contain;
+}
+
+.removeItem {
+  
+}
+.remove button{
+    width: 35px;
+    height: 35px;
+    border : 0px solid;
+    background-color: red;
+    color : white;
+    font-size: 1rem;
 }
 
 .checkout {

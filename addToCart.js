@@ -9,7 +9,6 @@ module.exports = function addToCart(product, request, response){
           let newProduct = JSON.parse(JSON.stringify(request.session.cart))
           // newProduct[1].products.push(y)
           let arr = newProduct.products.push(product)
-          console.log(newProduct.products)
           if(newProduct.products.length >= 1){
               newProduct.products.forEach((element) =>{
                 amount = amount + element.price 

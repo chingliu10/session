@@ -4,6 +4,7 @@ const hbs = require("hbs")
 const session = require("express-session")
 const mysqlStore = require("express-mysql-session")(session)
 const addToCart = require("./addToCart")
+const removeItem = require("./removeItem")
 app.set("view engine", "hbs")
 hbs.registerPartials(__dirname + "/views/partials")
 app.use(express.static("public"))
@@ -37,7 +38,7 @@ app.use(session({
 
 //database connection
 const db = require("./connection")
-let sess
+
 app.get("/", (req, res) => {
       
   if (req.session.cart) {
@@ -85,6 +86,14 @@ app.get("/addToCart/:pid", (req, res) => {
        
        
   })
+
+  app.post("/removeItem/:id", (req, res) => {
+      let item = req.params.id
+    
+      removeItem(req, res, item)
+  })
+
+
 
 app.listen(3000, () => {
   console.log("running from Nvidia servers")

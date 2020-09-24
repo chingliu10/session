@@ -5,16 +5,17 @@ const session = require("express-session")
 const mysqlStore = require("express-mysql-session")(session)
 const addToCart = require("./addToCart")
 const removeItem = require("./removeItem")
+require('dotenv').config()
 app.set("view engine", "hbs")
 hbs.registerPartials(__dirname + "/views/partials")
 app.use(express.static("public"))
 //create session store
 const sessionStore = new mysqlStore({
-  host: 'localhost',
-  port: 3306,
-  user: 'root',
-  password: 'jeffBezos56',
-  database: 'test',
+  host: process.env.DB_HOST,
+  port: process.env.PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB,
   schema : {
     tableName : "activeSession",
       columnNames : {
@@ -27,7 +28,7 @@ const sessionStore = new mysqlStore({
 ////
 app.use(session({
   key: 'SSID_oip',
-  secret: "shagufasalimmawaji",
+  secret: process.env.SESSION_SECRET,
   store: sessionStore,
   resave: false,
   saveUninitialized: false,

@@ -16,6 +16,8 @@ const sessionStore = new mysqlStore({
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB,
+  clearExpired : true,
+  checkExpirationInterval : 60,
   schema : {
     tableName : "activeSession",
       columnNames : {
@@ -32,9 +34,6 @@ app.use(session({
   store: sessionStore,
   resave: false,
   saveUninitialized: false,
-  cookie : {
-      maxAge : 120000
-  }
 }))
 
 //database connection
@@ -97,7 +96,7 @@ app.get("/addToCart/:pid", (req, res) => {
 
 
   app.get("/checkout", (req, res) => {
-    res.render("checkout", {cart : req.session.cart}
+    res.render("checkout", {cart : req.session.cart})
   })
 
   app.post("/checkout", () => {
